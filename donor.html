@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Donors - BloodLink</title>
+  <link rel="stylesheet" href="donor.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+      background: linear-gradient(to bottom, #fff, #ff4d4d);
+      color: #111;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated background */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 0, 0, 0.3);
+      border-radius: 50%;
+      animation: rise 10s infinite ease-in;
+    }
+
+    .bubble:nth-child(2) {
+      left: 20%; width: 30px; height: 30px; animation-delay: 2s;
+    }
+    .bubble:nth-child(3) {
+      left: 40%; width: 15px; height: 15px; animation-delay: 4s;
+    }
+    .bubble:nth-child(4) {
+      left: 60%; width: 25px; height: 25px; animation-delay: 6s;
+    }
+    .bubble:nth-child(5) {
+      left: 80%; width: 20px; height: 20px; animation-delay: 1s;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1); opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+    }
+
+    .navbar {
+      background-color: red;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: slideDown 1s ease;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .navbar nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .navbar nav a:hover {
+      color: #ffeaea;
+      transform: scale(1.05);
+    }
+
+    .navbar nav .active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .donor-section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeSlideIn 1.5s ease;
+    }
+
+    .donor-section h2 {
+      color: red;
+      text-align: center;
+      font-size: 2.7rem;
+      margin-bottom: 2.5rem;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .donor-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .donor-card {
+      background: linear-gradient(145deg, #fff0f0, #ffe6e6);
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: all 0.4s ease;
+      border: 2px solid #ff9999;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .donor-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255,255,255,0.1);
+      transform: rotate(45deg);
+      transition: 0.5s;
+    }
+
+    .donor-card:hover::before {
+      top: -25%;
+      left: -25%;
+    }
+
+    .donor-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(255, 0, 0, 0.4);
+    }
+
+    .donor-card h3 {
+      margin-top: 0;
+      color: #b30000;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .donor-card p {
+      margin: 0.4rem 0;
+      font-size: 1.1rem;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-60px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <header class="navbar">
+    <h1>BloodLink</h1>
+    <nav>
+      <a href="blood.html">Home</a>
+      <a href="prediction.html">Prediction</a>
+      <a href="donoor.html">Register as Donor</a>
+      <a href="donor.html" class="active">Donors</a>
+    </nav>
+  </header>
+
+  <section class="donor-section">
+    <h2>Our Registered Donors</h2>
+    <div class="donor-list">
+      <div class="donor-card">
+        <h3>User ID: BL001</h3>
+        <p>Name: Arjun Kumar</p>
+        <p>Blood Group: A+</p>
+      </div>
+      <div class="donor-card">
+        <h3>User ID: BL002</h3>
+        <p>Name: Meena R</p>
+        <p>Blood Group: O-</p>
+      </div>
+      <div class="donor-card">
+        <h3>User ID: BL003</h3>
+        <p>Name: Ravi Singh</p>
+        <p>Blood Group: B+</p>
+      </div>
+      <div class="donor-card">
+        <h3>User ID: BL004</h3>
+        <p>Name: Sneha K</p>
+        <p>Blood Group: AB-</p>
+      </div>
+      <div class="donor-card">
+        <h3>User ID: BL005</h3>
+        <p>Name: Dinesh Raj</p>
+        <p>Blood Group: O+</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

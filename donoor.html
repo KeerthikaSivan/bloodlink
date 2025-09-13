@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Donor Registration - BloodLink</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-oGgcwM5JrY9oJjU6eZ+0aJ4wG+Ryf8Wc0Pq4sVt5z14="
+    crossorigin=""
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="fade-in">
+  <div class="container">
+    <h2>Donor Registration</h2>
+    <form id="donor-form">
+      <label for="name">Name</label>
+      <input id="name" type="text" required />
+
+      <label for="email">Email</label>
+      <input id="email" type="email" required />
+
+      <label for="password">Password</label>
+      <input id="password" type="password" required />
+
+      <label for="age">Age</label>
+      <input id="age" type="number" min="18" max="65" required />
+
+      <label for="blood-group">Blood Group</label>
+      <select id="blood-group" required>
+        <option value="">Select blood group</option>
+        <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+        <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+      </select>
+
+      <label for="location-text">Location</label>
+      <input id="location-text" type="text" placeholder="City, State" required />
+
+      <label>Pick your location on map</label>
+      <div id="map"></div>
+      <a href="blood.html">
+  <button type="button">Register as Donor</button>
+</a>
+    </form>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-oQ9YxyHVRmocPwYHjWo0t1D9N8y2XDd78an8WYZVjP8="
+    crossorigin=""
+    defer
+  ></script>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BloodLink - Sign Up</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background: linear-gradient(135deg, #ffcccc, #ffe6e6);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .background-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .background-animation span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 100, 100, 0.25);
+      bottom: -150px;
+      border-radius: 50%;
+      animation: animate 20s linear infinite;
+    }
+
+    .background-animation span:nth-child(1) { left: 10%; width: 30px; height: 30px; animation-duration: 20s; }
+    .background-animation span:nth-child(2) { left: 25%; width: 40px; height: 40px; animation-duration: 25s; }
+    .background-animation span:nth-child(3) { left: 40%; width: 20px; height: 20px; animation-duration: 18s; }
+    .background-animation span:nth-child(4) { left: 55%; width: 35px; height: 35px; animation-duration: 22s; }
+    .background-animation span:nth-child(5) { left: 70%; width: 25px; height: 25px; animation-duration: 19s; }
+    .background-animation span:nth-child(6) { left: 85%; width: 30px; height: 30px; animation-duration: 24s; }
+
+    @keyframes animate {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-1000px) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      width: 90%;
+      max-width: 400px;
+      padding: 30px 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(214, 40, 40, 0.25);
+      text-align: center;
+      transition: 0.4s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .container:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 35px rgba(255, 0, 0, 0.45);
+    }
+
+    .logo {
+      width: 100px;
+      max-width: 80%;
+      margin-bottom: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h2 {
+      color: #d62828;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background-color: #d62828;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #b91c1c;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(214, 40, 40, 0.4);
+    }
+
+    .switch {
+      margin-top: 20px;
+    }
+
+    .switch a {
+      color: #d62828;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .switch a:hover {
+      text-decoration: underline;
+      color: #a31e1e;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Bubbles Animation -->
+  <div class="background-animation">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Card Section -->
+  <div class="container">
+    <img src="C:\Users\keerthika\Desktop\bloodlink\ChatGPT Image May 20, 2025, 07_21_23 PM.png" alt="BloodLink Logo" class="logo" />
+    <h2>Sign Up - Choose Role</h2>
+    <button onclick="location.href='donoor.html'">Donor Registration</button>
+    <button onclick="location.href='seekeer.html'">Seeker Registration</button>
+    <div class="switch">
+      <a href="login.html">Already have an account? Login</a>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BloodLink - Home</title>
+  <link rel="stylesheet" href="bld.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* General styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      background: #fdfdfd;
+    }
+
+    .navbar {
+      background-color: #e63946;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-links li a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      height: 100vh;
+      z-index: 2;
+    }
+
+    .hero-content h1 span {
+      color: #e63946;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #e63946;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #c2182b;
+    }
+
+    /* GIF styling */
+    .center-gif {
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Bubble background animation */
+    .bubbles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .bubbles span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 0, 0, 0.2);
+      border-radius: 50%;
+      animation: bubble 25s linear infinite;
+      bottom: -150px;
+    }
+
+    .bubbles span:nth-child(1) { left: 10%; animation-duration: 15s; width: 20px; height: 20px; }
+    .bubbles span:nth-child(2) { left: 20%; animation-duration: 20s; width: 25px; height: 25px; }
+    .bubbles span:nth-child(3) { left: 30%; animation-duration: 18s; width: 15px; height: 15px; }
+    .bubbles span:nth-child(4) { left: 40%; animation-duration: 22s; width: 30px; height: 30px; }
+    .bubbles span:nth-child(5) { left: 50%; animation-duration: 17s; width: 18px; height: 18px; }
+    .bubbles span:nth-child(6) { left: 60%; animation-duration: 23s; width: 28px; height: 28px; }
+    .bubbles span:nth-child(7) { left: 70%; animation-duration: 16s; width: 22px; height: 22px; }
+    .bubbles span:nth-child(8) { left: 80%; animation-duration: 19s; width: 26px; height: 26px; }
+    .bubbles span:nth-child(9) { left: 90%; animation-duration: 21s; width: 20px; height: 20px; }
+    .bubbles span:nth-child(10) { left: 100%; animation-duration: 20s; width: 24px; height: 24px; }
+
+    @keyframes bubble {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-1000px) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bubble Background -->
+  <div class="bubbles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">BloodLink</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="blood.html">Home</a></li>
+        <li><a href="contact us.html">About Us</a></li>
+        <li><a href="donor.html">Donor</a></li>
+        <li><a href="seekeer.html">Seeker</a></li>
+        <li><a href="chat.html">Chat</a></li>
+        <li><a href="about.html">Contact us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Welcome to <span>BloodLink</span></h1>
+      <p>Connecting life savers with life seekers</p>
+
+      <!-- Centered GIF -->
+      <img src="C:\Users\keerthika\Desktop\bloodlink\output-onlinegiftools.gif" alt="Blood Donation Animation" class="center-gif" />
+
+      <a href="donoor.html" class="cta-button">Become a Donor</a>
+    </div>
+  </section>
+
+</body>
+</html>
+

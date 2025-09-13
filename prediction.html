@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blood Donor Eligibility Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      padding: 30px;
+      background: linear-gradient(to right, #ffcccc, #ffe6e6);
+      color: #222;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h2 {
+      text-align: center;
+      color: #d62828;
+      font-size: 2.5rem;
+      animation: glowText 2s ease-in-out infinite alternate;
+    }
+
+    form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 25px rgba(214, 40, 40, 0.3);
+      position: relative;
+      z-index: 1;
+      animation: fadeInSlide 1.5s ease;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 600;
+      color: #b30000;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px;
+      width: 100%;
+      background-color: #d62828;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px #d62828;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #a11212;
+      transform: scale(1.03);
+      box-shadow: 0 0 20px #ff6666;
+    }
+
+    #result {
+      margin-top: 25px;
+      font-weight: bold;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+
+    .eligible {
+      color: #007e33; /* Green */
+    }
+
+    .not-eligible {
+      color: #cc0000; /* Red */
+    }
+
+    .deferred {
+      color: #ff8800; /* Orange */
+    }
+
+    .bubbles {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      background: rgba(255, 0, 0, 0.1);
+      border-radius: 50%;
+      animation: floatUp 10s infinite ease-in-out;
+    }
+
+    .bubble:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 1s; }
+    .bubble:nth-child(2) { width: 100px; height: 100px; left: 30%; animation-delay: 2s; }
+    .bubble:nth-child(3) { width: 60px; height: 60px; left: 60%; animation-delay: 3s; }
+    .bubble:nth-child(4) { width: 90px; height: 90px; left: 80%; animation-delay: 4s; }
+    .bubble:nth-child(5) { width: 70px; height: 70px; left: 50%; animation-delay: 5s; }
+
+    @keyframes floatUp {
+      0% { bottom: -100px; opacity: 0; }
+      50% { opacity: 0.6; }
+      100% { bottom: 110%; opacity: 0; }
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 5px #d62828; }
+      to { text-shadow: 0 0 20px #ff9999; }
+    }
+
+    @keyframes fadeInSlide {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bubbles">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <h2>Blood Donor Eligibility Prediction</h2>
+
+  <form id="donorForm">
+    <label>Age:</label>
+    <input type="number" id="age" required>
+
+    <label>Weight (kg):</label>
+    <input type="number" id="weight" required>
+
+    <label>Hemoglobin (g/dL):</label>
+    <input type="number" step="0.1" id="hemoglobin" required>
+
+    <label>Blood Pressure - Systolic:</label>
+    <input type="number" id="bps" required>
+
+    <label>Blood Pressure - Diastolic:</label>
+    <input type="number" id="bpd" required>
+
+    <label>Are you feeling healthy today?</label>
+    <select id="health">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <label>Do you have any chronic illness?</label>
+    <select id="illness">
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </select>
+
+    <label>Have you had a recent vaccination or international travel?</label>
+    <select id="recent">
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </select>
+
+    <label>Are you pregnant? (for female)</label>
+    <select id="pregnant">
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </select>
+
+    <button type="button" onclick="checkEligibility()">Check Eligibility</button>
+    <div id="result"></div>
+  </form>
+
+  <script>
+    function checkEligibility() {
+      const age = parseInt(document.getElementById("age").value);
+      const weight = parseInt(document.getElementById("weight").value);
+      const hemoglobin = parseFloat(document.getElementById("hemoglobin").value);
+      const bps = parseInt(document.getElementById("bps").value);
+      const bpd = parseInt(document.getElementById("bpd").value);
+      const health = document.getElementById("health").value;
+      const illness = document.getElementById("illness").value;
+      const recent = document.getElementById("recent").value;
+      const pregnant = document.getElementById("pregnant").value;
+
+      let resultDiv = document.getElementById("result");
+      let message = "";
+      let className = "";
+
+      if (age < 18 || age > 65) {
+        message = "❌ Not eligible: Age must be between 18 and 65.";
+        className = "not-eligible";
+      } else if (weight < 50) {
+        message = "❌ Not eligible: Weight must be at least 50 kg.";
+        className = "not-eligible";
+      } else if (hemoglobin < 12.5) {
+        message = "❌ Not eligible: Hemoglobin level too low.";
+        className = "not-eligible";
+      } else if (bps < 90 || bps > 180 || bpd < 60 || bpd > 100) {
+        message = "❌ Not eligible: Blood pressure not in safe range.";
+        className = "not-eligible";
+      } else if (health === "no") {
+        message = "❌ Not eligible: You must feel healthy.";
+        className = "not-eligible";
+      } else if (illness === "yes") {
+        message = "❌ Not eligible: Chronic illness detected.";
+        className = "not-eligible";
+      } else if (recent === "yes") {
+        message = "⏳ Temporarily deferred: Wait period needed after vaccination or travel.";
+        className = "deferred";
+      } else if (pregnant === "yes") {
+        message = "❌ Not eligible: Pregnant individuals cannot donate.";
+        className = "not-eligible";
+      } else {
+        message = "✅ Eligible: You can donate blood!";
+        className = "eligible";
+      }
+
+      resultDiv.className = className;
+      resultDiv.innerText = message;
+    }
+  </script>
+
+</body>
+</html>

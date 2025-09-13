@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us - BloodLink</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fff, #ff4d4d);
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      background-color: red;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: slideDown 1s ease;
+    }
+
+    .navbar h1 {
+      margin: 0;
+    }
+
+    .navbar nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .navbar nav a:hover {
+      color: #ffeaea;
+      transform: scale(1.05);
+    }
+
+    .navbar nav .active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .about {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      animation: slideFade 1.5s ease;
+    }
+
+    .about h2 {
+      color: red;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      animation: fadeInText 2s ease-in-out;
+    }
+
+    .about p {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      position: relative;
+      opacity: 0;
+      animation: fadeSlideIn 1s ease forwards;
+    }
+
+    .about p:nth-of-type(1) { animation-delay: 0.3s; }
+    .about p:nth-of-type(2) { animation-delay: 0.6s; }
+    .about p:nth-of-type(3) { animation-delay: 0.9s; }
+    .about p:nth-of-type(4) { animation-delay: 1.2s; }
+
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f8f8f8;
+      color: #333;
+      border-top: 2px solid #ccc;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-60px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInText {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideFade {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <h1>BloodLink</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="donor.html">Donor</a>
+      <a href="seeker.html">Seeker</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="chat.html">Chat</a>
+    </nav>
+  </header>
+
+  <section class="about">
+    <h2>Contact us</h2>
+    <p>BloodLink is a life-saving platform built to connect <strong>blood donors</strong> and <strong>seekers</strong> efficiently.</p>
+    <p>Users can <strong>sign in</strong> to our secure platform, register as donors or seekers, and get matched quickly.</p>
+    <p>We check the <strong>eligibility of donors</strong> using predictive algorithms, ensuring safety and reliability in every donation.</p>
+    <p>Need help? You can reach us by <strong>email</strong>, <strong>phone number</strong>, or our <strong>chat support</strong> anytime.</p>
+  </section>
+
+  <footer class="footer">
+    <p>Contact us: <a href="mailto:support@bloodlink.org">support@bloodlink.org</a> | Phone: +91 98765 43210</p>
+  </footer>
+</body>
+</html>
